@@ -1,6 +1,6 @@
 
 input{
-    margin-left: 5%;
+display: block
 }
 header{
     width: 100%;
@@ -53,9 +53,11 @@ td{
 #botones{
     display: inline-block;
     position: absolute;
+    margin-top: 5%;
+    margin-left: 5%;
 }
 button{
-    margin-top: 10px;
+    display: block;
 }
 #introducir{
     display: inline-block;

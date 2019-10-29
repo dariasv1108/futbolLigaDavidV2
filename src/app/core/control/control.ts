@@ -21,24 +21,21 @@ export class Control {
         var equipoUno = 0;
         var equipoDos = this.nombre.length - 1;
         var partidos: Resultado[] = [];
-
         for (var indexDos = 0; indexDos < this.nombre.length - 1; indexDos++) {
             for (var index = 0; index < (this.nombre.length / 2); index++) {
                 if (index == 0) {
-                    partidos.push(this.soloUno(equipoUno, (this.nombre.length - 1)));
+                    partidos.push(this.jugarPartido(equipoUno, (this.nombre.length - 1)));
                 } else {
                     equipoDos--;
-                    partidos.push(this.soloUno(equipoUno, equipoDos));
+                    partidos.push(this.jugarPartido(equipoUno, equipoDos));
                 }
                 equipoUno++;
-
                 if (equipoDos == 0) {
                     equipoDos = this.nombre.length - 1;
                 }
                 if (equipoUno == this.nombre.length - 1) {
                     equipoUno = 0;
                 }
-
             }
             this.jornadaIda.push(partidos);
             partidos = []
@@ -55,17 +52,16 @@ export class Control {
         for (var indexDos = 0; indexDos < this.nombre.length - 1; indexDos++) {
             for (var index = 0; index < (this.nombre.length / 2); index++) {
                 if (index == 0) {
-                    partidos.push(this.soloUno((this.nombre.length - 1), equipoUno));
+                    partidos.push(this.jugarPartido((this.nombre.length - 1), equipoUno));
                 } else {
                     equipoDos--;
-                    partidos.push(this.soloUno(equipoDos, equipoUno));
+                    partidos.push(this.jugarPartido(equipoDos, equipoUno));
                 }
                 equipoUno++;
-
-                if (equipoDos == 0) {
+                if (equipoDos === 0) {
                     equipoDos = this.nombre.length - 1;
                 }
-                if (equipoUno == this.nombre.length - 1) {
+                if (equipoUno === this.nombre.length - 1) {
                     equipoUno = 0;
                 }
 
@@ -85,7 +81,7 @@ export class Control {
         return this._resultado;
     }
 
-    private soloUno(index, indexDos) {
+    private jugarPartido(index, indexDos) {
         let anfitrion: Equipo = new Equipo(this.nombre[index], index);
         const huesped: Equipo = new Equipo(this.nombre[indexDos], indexDos);
         return new Resultado(anfitrion, huesped, Math.floor(Math.random() * 10), Math.floor(Math.random() * 10))
@@ -105,7 +101,7 @@ export class Control {
                 this._resultado[jornadaAcutal[index][indexDos].huesped.id].$golesFavor += this.jornadas[index][indexDos].golesHuesped;
             }
         }
-        this.resultado.sort(function (a, b) {
+        this.resultado.sort(function(a, b) {
             return (b.$puntos - a.$puntos);
         });
         return this.resultado;
