@@ -1,0 +1,88 @@
+body{
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+input{
+    margin-left: 5%;
+}
+header{
+    background-color: black;
+    height: 70px;
+    text-align: center;
+    padding-top: 20px;
+    color:white;
+    font-size: 30px;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+nav{
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    width: 90%;
+}
+article{
+    display: inline-block;
+    position: relative;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    width: 45%;
+    
+}
+section{
+    padding-top: 67px;
+}
+aside{
+    display: inline-block;
+    position: absolute;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    width: 45%;
+}
+table{
+   text-align: center; 
+   align-items: center;
+   border: solid;
+}
+td{
+    padding: 10px;
+    border: solid;
+}
+#botones{
+    display: inline-block;
+    position: absolute;
+    padding: 20px;
+}
+button{
+    margin-top: 10px;
+}
+#introducir{
+    display: inline-block;
+    position: relative;
+}
+#equipoNombre{
+    height: 50px;
+}
+#tablaJornada{
+    background-color: cyan;
+}
+#tablaFinal{
+    background-color: darkgoldenrod;
+}
+#comandoUno{
+    display: inline-block;
+    position: relative;
+    border:solid;
+    h5{
+        margin:10px;
+    }
+}
+#comandoDos{
+    display: inline-block;
+    position: relative;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    border:solid;
+    h5{
+        margin:10px;
+    }
+}
