@@ -1,73 +1,83 @@
-<body>
-  <header>La Liga</header>
-  <nav>
-    <div *ngIf="comienzo==false">
-      <div id="introducir">
-        <h3>Introduce nombre del Equipo</h3>
-        <div id="comandoUno">
-          <h5>Presiona Enter para introducir</h5>
-          <h5>o el boton Añadir Equipo</h5>
-        </div>
-        <div id="comandoDos">
-          <h5>Presiona Shift Enter para Empezar</h5>
-          <h5>o el boton Empezar Liga</h5>
-        </div>
-        <input (keydown.enter)="anadir()" (keydown.shift.enter)="empezar()" [(ngModel)]="nombre"><br>
+<header>
+  <div>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/LaLiga.svg/188px-LaLiga.svg.png"
+      style="height: 100%;  ">
+  </div>
+  <div style="text-align:center;">
+    <p>La Liga</p>
+  </div>
+  <div style="text-align-last:right;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/LaLiga.svg/188px-LaLiga.svg.png"
+      style="height: 100%;">
+  </div>
+</header>
+<nav>
+  <div *ngIf="comienzo==false">
+    <div id="introducir">
+      <h3>Introduce nombre del Equipo</h3>
+      <div id="comandoUno">
+        <h5>Presiona Enter para introducir</h5>
+        <h5>o el boton Añadir Equipo</h5>
       </div>
-      <div id="botones">
-        <button (click)="anadir()" id="anadir">Añadir Equipo</button><br>
-        <button (click)="empezar()" id="comenzar">Empezar Liga</button><br>
+      <div id="comandoDos">
+        <h5>Presiona Shift Enter para Empezar</h5>
+        <h5>o el boton Empezar Liga</h5>
       </div>
-      <h3>Equipos Participantes</h3>
-      <div id="equipoNombre">
-        <h4 *ngFor="let nombre of equipos" style="margin-right: 10px; display: inline-block;">{{nombre}}</h4>
-      </div>
+      <input (keydown.enter)="anadir()" (keydown.shift.enter)="empezar()" [(ngModel)]="nombre"><br>
+    </div>
+    <div id="botones">
+      <button (click)="anadir()" id="anadir">Añadir Equipo</button><br>
+      <button (click)="empezar()" id="comenzar">Empezar Liga</button><br>
+    </div>
+    <h3>Equipos Participantes</h3>
+    <div id="equipoNombre">
+      <h4 *ngFor="let nombre of equipos" style="margin-right: 10px; display: inline-block;">{{nombre}}</h4>
+    </div>
 
-    </div>
-    <div *ngIf="comienzo&&final==false">
-      <button (click)="pasar()" title="pasar">Pasar Jornada</button>
-      <h1>Jornada {{numeroJornada}}</h1>
-    </div>
-  </nav>
-  <article>
-    <section>
-      <table id="tablaJornada" *ngIf="final==false">
-        <tr>
-          <td>Equipos Anfitrion</td>
-          <td>Equipos Rival</td>
-          <td>Goles a Favor</td>
-          <td>Goles en contra</td>
-        </tr>
-        <tr *ngFor="let resul of resultado">
-          <td>{{resul.anfitrion.nombre}}</td>
-          <td>{{resul.huesped.nombre}}</td>
-          <td>{{resul.golesAnfitrion}}</td>
-          <td>{{resul.golesHuesped}}</td>
-        </tr>
-      </table>
-    </section>
-    <div *ngIf="final">
-      <h1>Liga Terminada</h1>
-      <h1>Ha Ganado {{resultadoGlobal[0].nombre}}</h1>
-    </div>
-  </article>
-  <aside>
-    <h1>Resultado Globales</h1>
-    <table id="tablaFinal">
+  </div>
+  <div *ngIf="comienzo&&final==false">
+    <button (click)="pasar()" title="pasar">Pasar Jornada</button>
+    <h1>Jornada {{numeroJornada}}</h1>
+  </div>
+</nav>
+<article>
+  <section>
+    <table id="tablaJornada" *ngIf="final==false">
       <tr>
-        <td>Equipo</td>
-        <td>Puntos</td>
+        <td>Equipos Anfitrion</td>
+        <td>Equipos Rival</td>
         <td>Goles a Favor</td>
         <td>Goles en contra</td>
       </tr>
-      <ng-template ngFor let-resulGlobal [ngForOf]="resultadoGlobal" let-i="index">
-        <tr *ngIf="i<5">
-          <td>{{resulGlobal.nombre}}</td>
-          <td>{{resulGlobal.puntos}}</td>
-          <td>{{resulGlobal.golesFavor}}</td>
-          <td>{{resulGlobal.golesContra}}</td>
-        </tr>
-      </ng-template>
+      <tr *ngFor="let resul of resultado">
+        <td>{{resul.anfitrion.nombre}}</td>
+        <td>{{resul.huesped.nombre}}</td>
+        <td>{{resul.golesAnfitrion}}</td>
+        <td>{{resul.golesHuesped}}</td>
+      </tr>
     </table>
-  </aside>
-</body>
+  </section>
+  <div *ngIf="final">
+    <h1>Liga Terminada</h1>
+    <h1>Ha Ganado {{resultadoGlobal[0].nombre}}</h1>
+  </div>
+</article>
+<aside>
+  <h1>Resultado Globales</h1>
+  <table id="tablaFinal">
+    <tr>
+      <td>Equipo</td>
+      <td>Puntos</td>
+      <td>Goles a Favor</td>
+      <td>Goles en contra</td>
+    </tr>
+    <ng-template ngFor let-resulGlobal [ngForOf]="resultadoGlobal" let-i="index">
+      <tr *ngIf="i<5">
+        <td>{{resulGlobal.nombre}}</td>
+        <td>{{resulGlobal.puntos}}</td>
+        <td>{{resulGlobal.golesFavor}}</td>
+        <td>{{resulGlobal.golesContra}}</td>
+      </tr>
+    </ng-template>
+  </table>
+</aside>

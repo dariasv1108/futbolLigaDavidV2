@@ -1,19 +1,22 @@
-body{
-    height: 100%;
-    margin: 0px;
-    padding: 0px;
-}
+
 input{
     margin-left: 5%;
 }
 header{
-    background-color: black;
+    width: 100%;
     height: 70px;
-    text-align: center;
-    padding-top: 20px;
-    color:white;
-    font-size: 30px;
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+    padding-top: 3%;
+    padding-bottom: 3%;
+   div{
+        width: 33%;
+        display: inline-block;
+       p{  
+        color:black;
+        font-size: 30px;
+        font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+    }
+   }
+ 
 }
 nav{
     margin-left: 2.5%;
@@ -50,7 +53,6 @@ td{
 #botones{
     display: inline-block;
     position: absolute;
-    padding: 20px;
 }
 button{
     margin-top: 10px;
